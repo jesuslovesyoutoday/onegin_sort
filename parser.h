@@ -1,3 +1,5 @@
+#ifndef PARSER_H
+#define PARSER_H
 
 //--------------------------------------
 //!
@@ -19,3 +21,5 @@ struct String
 //-----------------------------------
 
 struct String* BufferParser(char** buffer);
+
+#endif // PARSER_H
