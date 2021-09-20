@@ -33,5 +33,11 @@ struct String* BufferParser(char** buffer)
         ptr1 ++;
         symb_amount = 0;
     }
+
+    char* ptr2 = *buffer;
+    for (int i = 0; i < string_amount; i++)
+    {
+        *(str_arr[i].address + str_arr[i].length) = '\0';
+    }
     return str_arr;
 }
