@@ -31,6 +31,6 @@ enum InputStatus {
 //!
 //!--------------------------------------
     
-enum InputStatus input(char* input_file, char* output_file, char** buffer);
+enum InputStatus Input(char* input_file, char* output_file, char** buffer);
 
 #endif // INPUT_H

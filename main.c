@@ -2,6 +2,7 @@
 #include "string.h"
 #include "input.h"
 #include "clear.h"
+//#include "parser.h"
 
 int main()
 {
@@ -9,7 +10,7 @@ int main()
     char output_file[200] = "text_out.txt";
     char* buffer = NULL;
 
-    enum InputStatus status = input(input_file, output_file, &buffer);
+    enum InputStatus status = Input(input_file, output_file, &buffer);
     switch (status) {
     case EMPTY_FILE:
         puts("Input file is empty\n");
@@ -18,17 +19,21 @@ int main()
         puts("File doesn't exist\n");
         break;
     case OK:
+        puts("File is ok\n");
         break;
     default:
         puts("Unknown error");
         break;
     }
 
+    struct String* index = NULL;
+    index = BufferParser(&buffer);
+
     //sort();
 
     //output();
 
-    clear(buffer);
+    Clear(buffer, index);
 
     return 0;
 }

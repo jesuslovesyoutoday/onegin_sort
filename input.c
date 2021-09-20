@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
-enum InputStatus input(char* input_file, char* output_file, char** buffer)
+enum InputStatus Input(char* input_file, char* output_file, char** buffer)
 {
     puts("Enter input file name:\n");
     scanf("%s", input_file);
@@ -23,6 +23,8 @@ enum InputStatus input(char* input_file, char* output_file, char** buffer)
         if (*buffer == NULL)
             puts("wtf");
         size_t size = fread(*buffer, file_size, sizeof(char), fin);
+        *(*buffer + size + 1) = '\n';
+        *(*buffer + size + 2) = '\0';
         printf("%d\n", file_size);
         
         fclose(fin);
