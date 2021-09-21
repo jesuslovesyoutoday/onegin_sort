@@ -6,7 +6,6 @@ struct String* BufferParser(char** buffer)
 {
     assert(*buffer);
     char* ptr = *buffer;
-    char symb;
     int string_amount = 0;
     do
     {
@@ -22,14 +21,14 @@ struct String* BufferParser(char** buffer)
 
     for(int i = 0; i < string_amount; i++)
     {
+        str_arr[i].address = ptr1;
         do
         {
             symb_amount ++;
             ptr1++;
-        }while(*ptr1 != '\n');
+        } while(*ptr1 != '\n');
 
         str_arr[i].length = symb_amount;
-        str_arr[i].address = ptr1;
         ptr1 ++;
         symb_amount = 0;
     }

@@ -19,13 +19,14 @@ enum InputStatus Input(char* input_file, char* output_file, char** buffer)
         stat(input_file, &file_inf);
         int file_size = file_inf.st_size;
 
-        *buffer = calloc(file_size, sizeof(char));
+        *buffer = calloc(file_size + 5, sizeof(char));
         if (*buffer == NULL)
             puts("wtf");
-        size_t size = fread(*buffer, file_size, sizeof(char), fin);
+        size_t size = fread(*buffer, sizeof(char), file_size, fin);
         *(*buffer + size + 1) = '\n';
         *(*buffer + size + 2) = '\0';
-        printf("%d\n", file_size);
+        printf("%d\n", size);
+        puts(*buffer);
         
         fclose(fin);
         
