@@ -28,20 +28,16 @@ int main()
         break;
     }
 
-    struct String* index = NULL;
-    index = BufferParser(&buffer);
+    int string_amount = 0;
 
-    /*char* ptr = buffer;
-    do
-    {
-        printf("%c\n", *ptr);
-        ptr++;
-    }while(*ptr != '\0');*/
+    struct String* index = NULL;
+    index = BufferParser(&buffer, &string_amount);
 
     printf("%d %d %d\n", index[0].length, index[1].length, index[2].length);
 
     int outcome = Cmp(index[0], index[1]);
     printf("outcome = %d\n", outcome);
+    printf("amount of strings = %d\n", string_amount);
 
     //sort();
 

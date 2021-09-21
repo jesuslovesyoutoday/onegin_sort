@@ -2,24 +2,24 @@
 #include <stdlib.h>
 #include <assert.h>
 
-struct String* BufferParser(char** buffer)
+struct String* BufferParser(char** buffer, int* string_amount)
 {
     assert(*buffer);
     char* ptr = *buffer;
-    int string_amount = 0;
+    
     do
     {
         if (*ptr == '\n')
-            string_amount++;
+            (*string_amount)++;
         ptr++;
     } while(*ptr != '\0');
 
-    struct String* str_arr = calloc(string_amount, sizeof(struct String));
+    struct String* str_arr = calloc(*string_amount, sizeof(struct String));
 
     int symb_amount = 0;
     char* ptr1 = *buffer;
 
-    for(int i = 0; i < string_amount; i++)
+    for(int i = 0; i < *string_amount; i++)
     {
         str_arr[i].address = ptr1;
         do
@@ -34,7 +34,7 @@ struct String* BufferParser(char** buffer)
     }
 
     char* ptr2 = *buffer;
-    for (int i = 0; i < string_amount; i++)
+    for (int i = 0; i < *string_amount; i++)
     {
         *(str_arr[i].address + str_arr[i].length) = '\0';
     }

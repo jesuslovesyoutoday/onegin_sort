@@ -20,6 +20,6 @@ struct String
 //!
 //-----------------------------------
 
-struct String* BufferParser(char** buffer);
+struct String* BufferParser(char** buffer, int* string_amount);
 
 #endif // PARSER_H
