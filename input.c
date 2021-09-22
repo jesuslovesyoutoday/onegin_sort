@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
-enum InputStatus Input(char* input_file, char* output_file, char** buffer)
+enum FileStatus Input(char* input_file, char* output_file, char** buffer)
 {
     puts("Enter input file name:\n");
     scanf("%s", input_file);

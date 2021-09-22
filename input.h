@@ -9,7 +9,7 @@
 //!
 //---------------------------------------
 
-enum InputStatus {
+enum FileStatus {
     OK = 0,
     DOESNT_EXIST = 1,
     EMPTY_FILE = 2
@@ -28,9 +28,11 @@ enum InputStatus {
 //! @param[out] <buffer> pointer to the
 //!                      allocated memory
 //!                      to write input
+//! @param[out] <symbols_amount> amount
+//!           of symbols in file included
 //!
 //!--------------------------------------
     
-enum InputStatus Input(char* input_file, char* output_file, char** buffer);
+enum FileStatus Input(char* input_file, char* output_file, char** buffer);
 
 #endif // INPUT_H

@@ -8,4 +8,5 @@ add_executable(sort
     input.c
     clear.c
     parser.c
-    cmp.c)
+    cmp.c
+    output.c)
