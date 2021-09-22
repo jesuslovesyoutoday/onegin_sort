@@ -9,4 +9,5 @@ add_executable(sort
     clear.c
     parser.c
     cmp.c
-    output.c)
+    output.c
+    file_status.c)

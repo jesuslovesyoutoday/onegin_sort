@@ -12,7 +12,8 @@
 enum FileStatus {
     OK = 0,
     DOESNT_EXIST = 1,
-    EMPTY_FILE = 2
+    EMPTY_FILE = 2,
+    WRITING_ERROR = 3
 };
 
 //---------------------------------------
