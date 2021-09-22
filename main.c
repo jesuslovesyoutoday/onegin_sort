@@ -23,7 +23,10 @@ int main()
     struct String* index = NULL;
     index = BufferParser(&buffer, &string_amount);
     
-    //Qsort(index);
+    int outcome = Cmp(index[5], index[10]);
+    printf("outcome = %d\n", outcome);
+    
+    Qsort(index, 0, string_amount - 1);
 
     enum FileStatus status_out = Output(index, output_file, string_amount);
     FileStatus(status_out);

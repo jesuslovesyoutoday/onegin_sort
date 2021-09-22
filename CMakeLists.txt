@@ -10,4 +10,5 @@ add_executable(sort
     parser.c
     cmp.c
     output.c
-    file_status.c)
+    file_status.c
+    qsort.c)

@@ -11,7 +11,7 @@ int Cmp(struct String str1, struct String str2)
     assert(str1.length  != 0);
     assert(str2.length  != 0);
 
-    char* punct_marks = ".,!?-:;";
+    char* punct_marks = ".,!\"\'?-:;\t ";
     char* ptr1 = str1.address;
     char* ptr2 = str2.address;
     
@@ -22,7 +22,7 @@ int Cmp(struct String str1, struct String str2)
 
         if (*ptr1 == '\0')
         {
-            break;
+            return 2;
         }
         ptr1++;
         ptr2++;
