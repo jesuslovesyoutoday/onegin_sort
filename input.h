@@ -1,8 +1,6 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include <string.h>
-
 //---------------------------------------
 //!
 //! Enum to log errors while opening file

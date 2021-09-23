@@ -18,6 +18,24 @@
 //!
 //--------------------------------------
 
-int Cmp(struct String str1, struct String str2);
+int Cmp(struct String* str1, struct String* str2);
+
+//-------------------------------------
+//! 
+//! Compares two strings alphabetically
+//! from the end to the begin
+//!
+//! @param[in] <str1> first string
+//! @param[in] <str2> second string
+//!
+//! @note: if str1 > str2  - returns 1
+//!        if str2 > str1  - returns 2
+//!        if str1 == str2 - returns 0
+//!
+//-------------------------------------
+
+int RevCmp(struct String* str1, struct String* str2);
+
+int PtrCmp(struct String* ptr1, struct String* ptr2);
 
 #endif // CMP_H

@@ -6,7 +6,6 @@ set(LANGUAGE CXX)
 add_executable(sort
     main.c
     input.c
-    clear.c
     parser.c
     cmp.c
     output.c

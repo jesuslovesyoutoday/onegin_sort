@@ -19,4 +19,8 @@
 
 void Qsort(struct String* index, int left, int right);
 
+void RevQsort(struct String* index, int left, int right);
+
+void PtrQsort(struct String* index, int left, int right);
+
 #endif // QSORT_H
