@@ -2,6 +2,7 @@
 #define QSORT_H
 
 #include "parser.h"
+#include <stddef.h>
 
 //-----------------------------------------
 //!
@@ -10,6 +11,9 @@
 //!
 //! @param[out] <index> array of pointers to
 //! strings in buffer
+//!
+//! @param[in] <size> size of args' type
+//!
 //! @param[in] <left> number of element to 
 //!                     start sorting with
 //! @param[in] <right>  number of the last 
@@ -19,10 +23,6 @@
 //!
 //-----------------------------------------
 
-void Qsort(struct String* index, int left, int right, int (*cmp)(struct String*, struct String*));
-
-void RevQsort(struct String* index, int left, int right);
-
-void PtrQsort(struct String* index, int left, int right);
+void Qsort(void* index, size_t size, int left, int right, int (*cmp)(struct String*, struct String*));
 
 #endif // QSORT_H

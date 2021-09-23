@@ -11,7 +11,7 @@ static void swap(struct String* index, int i, int j)
     index[j] = temp;
 }
 
-void Qsort(struct String* index, int left, int right, 
+void Qsort(void* index, size_t size, int left, int right, 
 		   int (*cmp)(struct String*, struct String*))
 {
     int i, last;
@@ -23,12 +23,12 @@ void Qsort(struct String* index, int left, int right,
     last = left;
     for (i = left+1; i <= right; ++i)
     {
-        if (cmp(index + i, index + left) == 2)
+        if (cmp(index + i*size, index + left*size) == 2)
         {
             swap(index, ++last, i);
         }
     }
     swap(index, left, last);
-    Qsort(index, left, last-1, cmp);
-    Qsort(index, last+1, right, cmp);
+    Qsort(index, size, left, last-1, cmp);
+    Qsort(index, size, last+1, right, cmp);
 }
