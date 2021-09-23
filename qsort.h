@@ -17,7 +17,7 @@
 //!
 //-----------------------------------------
 
-void Qsort(struct String* index, int left, int right);
+void Qsort(struct String* index, int left, int right, int (*cmp)(struct String*, struct String*));
 
 void RevQsort(struct String* index, int left, int right);
 

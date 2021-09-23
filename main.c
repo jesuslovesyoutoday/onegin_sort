@@ -23,17 +23,20 @@ int main()
     index = BufferParser(&buffer, &string_amount);
     
     
-    Qsort(index, 0, string_amount - 1);
+    Qsort(index, 0, string_amount - 1, 
+    	 (int (*)(struct String*, struct String*))(Cmp));
 
     enum FileStatus status_out = Output(index, output_file, string_amount);
     FileStatus(status_out);
     
-    RevQsort(index, 0, string_amount - 1);
+    Qsort(index, 0, string_amount - 1,
+    	  (int (*)(struct String*, struct String*))(RevCmp));
     
     enum FileStatus status_out2 = Output(index, output_file, string_amount);
     FileStatus(status_out2);
     
-    PtrQsort(index, 0, string_amount - 1);
+    Qsort(index, 0, string_amount - 1,
+    	 (int (*)(struct String*, struct String*))(PtrCmp));
     
     enum FileStatus status_out3 = Output(index, output_file, string_amount);
     FileStatus(status_out3);

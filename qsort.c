@@ -11,7 +11,8 @@ static void swap(struct String* index, int i, int j)
     index[j] = temp;
 }
 
-void Qsort(struct String* index, int left, int right)
+void Qsort(struct String* index, int left, int right, 
+		   int (*cmp)(struct String*, struct String*))
 {
     int i, last;
     if (left >= right)
@@ -22,54 +23,12 @@ void Qsort(struct String* index, int left, int right)
     last = left;
     for (i = left+1; i <= right; ++i)
     {
-        if (Cmp(index + i, index + left) == 2)
+        if (cmp(index + i, index + left) == 2)
         {
             swap(index, ++last, i);
         }
     }
     swap(index, left, last);
-    Qsort(index, left, last-1);
-    Qsort(index, last+1, right);
-}
-
-void RevQsort(struct String* index, int left, int right)
-{
-    int i, last;
-    if (left >= right)
-    {
-        return;
-    }
-    swap(index, left,  (left + right)/2);
-    last = left;
-    for (i = left+1; i <= right; ++i)
-    {
-        if (RevCmp(index + i, index + left) == 2)
-        {
-            swap(index, ++last, i);
-        }
-    }
-    swap(index, left, last);
-    RevQsort(index, left, last-1);
-    RevQsort(index, last+1, right);
-}
-
-void PtrQsort(struct String* index, int left, int right)
-{
-    int i, last;
-    if (left >= right)
-    {
-        return;
-    }
-    swap(index, left,  (left + right)/2);
-    last = left;
-    for (i = left+1; i <= right; ++i)
-    {
-        if (PtrCmp(index + i, index + left) == 2)
-        {
-            swap(index, ++last, i);
-        }
-    }
-    swap(index, left, last);
-    PtrQsort(index, left, last-1);
-    PtrQsort(index, last+1, right);
+    Qsort(index, left, last-1, cmp);
+    Qsort(index, last+1, right, cmp);
 }
