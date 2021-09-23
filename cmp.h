@@ -36,6 +36,19 @@ int Cmp(struct String* str1, struct String* str2);
 
 int RevCmp(struct String* str1, struct String* str2);
 
+//----------------------------------------
+//!
+//! Compares pointers to strings in buffer
+//!
+//! @param[in] <ptr1> first string
+//! @param[in] <ptr2> second string
+//!
+//! @note: if ptr1 >  ptr2 - returns 1
+//!        if ptr2 >  ptr1 - returns 2
+//!        if ptr1 == ptr2 - returns 0
+//!
+//----------------------------------------
+
 int PtrCmp(struct String* ptr1, struct String* ptr2);
 
 #endif // CMP_H

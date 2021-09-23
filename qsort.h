@@ -15,6 +15,8 @@
 //! @param[in] <right>  number of the last 
 //!                   element to be sorted
 //!
+//! @param[in] <cmp> comparator function
+//!
 //-----------------------------------------
 
 void Qsort(struct String* index, int left, int right, int (*cmp)(struct String*, struct String*));

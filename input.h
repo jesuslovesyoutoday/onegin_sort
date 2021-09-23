@@ -30,6 +30,8 @@ enum FileStatus {
 //! @param[out] <symbols_amount> amount
 //!           of symbols in file included
 //!
+//! @note: allocates memory
+//!
 //!--------------------------------------
     
 enum FileStatus Input(char* input_file, char* output_file, char** buffer);
