@@ -10,6 +10,17 @@
 
 int main()
 {
+
+	puts("-------------------------------");
+	puts("|      ^                      |");
+	puts("|    / /  /\\____/\\            |");
+	puts("|   | |  (  * Y * )           |");
+	puts("|___\\_\\__/  ______ \\__________|");
+	puts("|        | |      | |         |");
+	puts("|        (_)      (_)         |");
+	puts("|           *HELP*            |");
+	puts("-------------------------------");	
+
     char input_file[200] = "text.txt";
     char output_file[200] = "text_out.txt";
     char* buffer = NULL;

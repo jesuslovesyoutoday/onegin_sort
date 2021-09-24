@@ -2,13 +2,36 @@
 #include "cmp.h"
 #include <stdio.h>
 
-// универсальный swap & qsort 
-
-static void swap(struct String* index, int i, int j)
+//--------------------------------------
+//!
+//! Swaps two arguments
+//!
+//! @param[in] <index> pointer to array
+//!
+//! @param[in] <size> size of data type
+//!
+//! @param[in] <i> index of first arg
+//!
+//! @param[in] <j> index of second arg
+//!
+//--------------------------------------
+static void swap(void* index, size_t size, int i, int j)
 {
-    struct String temp = index[i];
-    index[i] = index[j];
-    index[j] = temp;
+	void*  ptr1 = index + size * i;
+	void*  ptr2 = index + size * j;
+	unsigned char* p1 = ptr1;
+	unsigned char* p2 = ptr2;
+	unsigned char tmp;
+	
+    for (int k = 0; k < size; k++)
+    {
+		/*p2[k] = p1[k] - p2[k];
+		p1[k] = p1[k] - p2[k];
+		p2[k] = p1[k] + p2[k];*/
+		tmp = p1[k];
+		p1[k] = p2[k];
+		p2[k] = tmp;
+	}
 }
 
 void Qsort(void* index, size_t size, int left, int right, 
@@ -19,16 +42,16 @@ void Qsort(void* index, size_t size, int left, int right,
     {
         return;
     }
-    swap(index, left,  (left + right)/2);
+    swap(index, size, left,  (left + right)/2);
     last = left;
     for (i = left+1; i <= right; ++i)
     {
-        if (cmp(index + i*size, index + left*size) == 2)
+        if (cmp((index + i*size), (index + left*size)) == 2)
         {
-            swap(index, ++last, i);
+            swap(index, size, ++last, i);
         }
     }
-    swap(index, left, last);
+    swap(index, size, left, last);
     Qsort(index, size, left, last-1, cmp);
     Qsort(index, size, last+1, right, cmp);
 }
