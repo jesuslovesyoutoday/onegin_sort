@@ -6,11 +6,6 @@
 
 int Cmp(struct String* str1, struct String* str2)
 {
-    assert(str1->address != NULL);
-    assert(str2->address != NULL);
-    assert(str1->length  != 0);
-    assert(str2->length  != 0);
-
     char* punct_marks = ".,!\"\'?-:;\t ";
     char* ptr1 = str1->address;
     char* ptr2 = str2->address;
@@ -44,11 +39,6 @@ int Cmp(struct String* str1, struct String* str2)
 
 int RevCmp(struct String* str1, struct String* str2)
 {
-	assert(str1);
-	assert(str2);
-	assert(str1->address != NULL);
-    assert(str2->address != NULL);
-    
     char* punct_marks = ".,!\"\'?-:;\t []";
     char  endline = '\0';
     char* ptr1 = strchr(str1->address, endline) - 1;
